@@ -1,13 +1,10 @@
 <template>
   <v-app>
-    <v-main>
-      <router-view />
-    </v-main>
-
-    <AppFooter />
+    <UserView/>
   </v-app>
 </template>
 
 <script setup>
-  //
+import UserView from './userview.vue'
+  
 </script>
