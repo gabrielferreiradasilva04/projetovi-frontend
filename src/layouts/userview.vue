@@ -1,5 +1,5 @@
 <template>
-    <v-app id="inspire">
+    <v-app>
         <v-navigation-drawer v-model="drawer" color="primary">
             <v-list>
                 <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png" subtitle="john@google.com"
@@ -21,7 +21,6 @@
                     </v-list-item>
                 </RouterLink>
             </v-list>
-            <!--  -->
         </v-navigation-drawer>
 
         <v-app-bar color="primary">
@@ -38,6 +37,7 @@
         <v-main>
             <RouterView />
         </v-main>
+
     </v-app>
 </template>
 
@@ -51,7 +51,7 @@ const drawer = ref(null)
 const items = [
     { text: 'Dashboard', icon: 'mdi-view-dashboard', to: "/home" },
     { text: 'Produtos', icon: 'mdi-sitemap-outline', to: "/products" },
-    { text: 'Orçamentos', icon: 'mdi-currency-usd', to: "/budget" },
+    { text: 'Orçamentos', icon: 'mdi-currency-usd', to: "/estimate" },
     { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" }
 ]
 
