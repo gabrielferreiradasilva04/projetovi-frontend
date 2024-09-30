@@ -1,8 +1,8 @@
 <template>
-    <v-app id="inspire">
+    <v-app>
         <v-navigation-drawer v-model="drawer" color="primary">
             <v-list>
-                <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png" subtitle="john@google.com"
+                <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png" subtitle="gabriel_silva@outlook.com"
                     title="Gabriel Silva">
                 </v-list-item>
             </v-list>
@@ -21,13 +21,12 @@
                     </v-list-item>
                 </RouterLink>
             </v-list>
-            <!--  -->
         </v-navigation-drawer>
 
         <v-app-bar color="primary">
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-app-bar-title>e-stoquei</v-app-bar-title>
+            <v-app-bar-title>Meu estoque 001</v-app-bar-title>
             <v-btn>
                 <v-icon size="large" @click="toggleTheme">
                     mdi-theme-light-dark
@@ -38,6 +37,7 @@
         <v-main>
             <RouterView />
         </v-main>
+
     </v-app>
 </template>
 
@@ -51,8 +51,10 @@ const drawer = ref(null)
 const items = [
     { text: 'Dashboard', icon: 'mdi-view-dashboard', to: "/home" },
     { text: 'Produtos', icon: 'mdi-sitemap-outline', to: "/products" },
-    { text: 'Orçamentos', icon: 'mdi-currency-usd', to: "/budget" },
-    { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" }
+    { text: 'Orçamentos', icon: 'mdi-currency-usd', to: "/estimate" },
+    { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" },
+    { text: 'Clientes', icon: 'mdi-account', to: "/clients" },
+    { text: 'Fornecedores', icon: 'mdi-account', to: "/clients" }
 ]
 
 const theme = useTheme();

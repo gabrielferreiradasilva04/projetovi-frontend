@@ -19,15 +19,21 @@ export default createVuetify({
       light: {
         dark: false,
         colors: {
-          primary: colors.lightBlue.darken3, // #E53935
-          secondary: colors.shades.white, // #FFCDD2
+          primary: '#037171',
+          secondary: '#009F93',
+          error: colors.red.darken2,
+          warning: colors.orange.lighten1,
+          success: colors.lightGreen.lighten1
         }
       },
       dark: {
         light: false,
         colors: {
-          primary: colors.blue.darken4, // #E53935
-          secondary: colors.shades.white, // #FFCDD2
+          primary: '#1D2D44',
+          secondary: '#3E5C76',
+          error: colors.red.darken2,
+          warning: colors.orange.lighten1,
+          success: colors.lightGreen.lighten1
         }
       }
     },
