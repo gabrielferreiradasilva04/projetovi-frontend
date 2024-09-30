@@ -11,6 +11,12 @@ const customRoutes = routes.map(route => {
       meta: { layout: 'authLayout' }
     }
   }
+  if (route.path === '/register') {
+    return {
+      ...route,
+      meta: { layout: 'authLayout' }
+    }
+  }
   return route;
 });
 

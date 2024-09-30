@@ -2,7 +2,7 @@
     <v-app>
         <v-navigation-drawer v-model="drawer" color="primary">
             <v-list>
-                <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png" subtitle="john@google.com"
+                <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png" subtitle="gabriel_silva@outlook.com"
                     title="Gabriel Silva">
                 </v-list-item>
             </v-list>
@@ -26,7 +26,7 @@
         <v-app-bar color="primary">
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-app-bar-title>e-stoquei</v-app-bar-title>
+            <v-app-bar-title>Meu estoque 001</v-app-bar-title>
             <v-btn>
                 <v-icon size="large" @click="toggleTheme">
                     mdi-theme-light-dark
@@ -52,7 +52,9 @@ const items = [
     { text: 'Dashboard', icon: 'mdi-view-dashboard', to: "/home" },
     { text: 'Produtos', icon: 'mdi-sitemap-outline', to: "/products" },
     { text: 'Orçamentos', icon: 'mdi-currency-usd', to: "/estimate" },
-    { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" }
+    { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" },
+    { text: 'Clientes', icon: 'mdi-account', to: "/clients" },
+    { text: 'Fornecedores', icon: 'mdi-account', to: "/clients" }
 ]
 
 const theme = useTheme();
