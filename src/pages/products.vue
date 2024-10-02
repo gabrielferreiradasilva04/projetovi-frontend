@@ -1,14 +1,14 @@
 <template>
-    <ProductDataTable :headers="headers" :items="items"/>
+    <DefaultDataTable :headers="headers" :items="items" :show-add="true" />
 </template>
 <script setup>
-import ProductDataTable from '@/components/productDataTable.vue';
+import DefaultDataTable from '@/components/defaultDataTable.vue';
 
 const headers = [
     { title: 'Código', key: 'code' },
-    { title: 'Valor Compra', key: 'priceCost' },
     { title: 'Valor Venda', key: 'salePrice' },
-    { title: 'Quantidade', key: 'quantityStock' },
+    { title: 'Valor Compra', key: 'quantityStock' },
+    { title: 'Em Estoque', key: 'quantityStock' },
     { title: 'Ações', key: 'actions', sortable: false },
 ]
 const items = [

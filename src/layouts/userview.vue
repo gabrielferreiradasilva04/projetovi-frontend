@@ -2,8 +2,8 @@
     <v-app>
         <v-navigation-drawer v-model="drawer" color="primary">
             <v-list>
-                <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png" subtitle="gabriel_silva@outlook.com"
-                    title="Gabriel Silva">
+                <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
+                    subtitle="gabriel_silva@outlook.com" title="Gabriel Silva">
                 </v-list-item>
             </v-list>
 
@@ -20,6 +20,13 @@
                         <v-list-item-title v-text="item.text"></v-list-item-title>
                     </v-list-item>
                 </RouterLink>
+                <br>
+                <v-divider></v-divider>
+                <div class="pa-2">
+                    <v-list-item prepend-avatar="/public/icone_secundario_semfundo.png" class="d-flex justify-center"
+                        to="/login" variant="tonal">
+                    </v-list-item>
+                </div>
             </v-list>
         </v-navigation-drawer>
 
@@ -49,12 +56,13 @@ import { useTheme } from 'vuetify';
 const drawer = ref(null)
 
 const items = [
-    { text: 'Dashboard', icon: 'mdi-view-dashboard', to: "/home" },
-    { text: 'Produtos', icon: 'mdi-sitemap-outline', to: "/products" },
+    { text: 'Dashboard', icon: 'mdi-google-analytics', to: "/home" },
+    { text: 'Produtos', icon: 'mdi-sitemap', to: "/products" },
     { text: 'Orçamentos', icon: 'mdi-currency-usd', to: "/estimate" },
     { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" },
-    { text: 'Clientes', icon: 'mdi-account', to: "/clients" },
-    { text: 'Fornecedores', icon: 'mdi-account', to: "/clients" }
+    { text: 'Clientes', icon: 'mdi-account-group', to: "/clients" },
+    { text: 'Fornecedores', icon: 'mdi-shopping', to: "/suppliers" },
+    { text: 'Perfil', icon: 'mdi-account', to: "/suppliers" }
 ]
 
 const theme = useTheme();

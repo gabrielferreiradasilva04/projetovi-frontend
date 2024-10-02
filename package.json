@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@mdi/font": "7.4.47",
+    "chart.js": "^4.4.4",
+    "chartjs": "^0.3.24",
     "core-js": "^3.37.1",
     "frontend": "file:",
     "roboto-fontface": "*",
