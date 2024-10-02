@@ -7,11 +7,8 @@
 
                 <v-divider class="mx-4" inset vertical></v-divider>
 
-                <v-btn>
-                    <v-icon size="large">
-                        mdi-plus
-                    </v-icon>
-
+                <v-btn variant="tonal">
+                   Adicionar
                 </v-btn>
 
             </v-toolbar>
