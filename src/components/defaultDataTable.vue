@@ -1,7 +1,7 @@
 <template>
     <v-data-table :headers="props.headers" :items="props.items" :search="search" no-data-text="Ops... Nada por aqui">
         <template v-slot:top>
-            <v-toolbar flat class="pa-3">
+            <v-toolbar flat class="pa-3" rounded>
                 <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
                     hide-details single-line></v-text-field>
 
