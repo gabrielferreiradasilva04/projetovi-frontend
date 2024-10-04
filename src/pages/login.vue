@@ -23,6 +23,8 @@
             </v-card-text>
         </v-card>
 
+        <v-divider class="ma-2"></v-divider>
+
         <v-btn class="mb-8" color="primary" size="large" variant="tonal" block>
             Entrar
         </v-btn>

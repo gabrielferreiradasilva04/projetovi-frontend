@@ -18,7 +18,7 @@
             <v-container class="pa-2" fluid>
                 <v-row dense>
                     <v-col v-for="item in items" :key="item.raw.title" cols="auto" md="4">
-                        <v-card class="pb-3" border>
+                        <v-card class="pb-3" border hover>
                             <v-card-title>{{ item.raw.title }}</v-card-title>
                             <v-card-subtitle>Valor: {{ item.raw.total }}</v-card-subtitle>
                             <v-card-text class="ga-2">

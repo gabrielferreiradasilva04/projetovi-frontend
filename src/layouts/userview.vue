@@ -23,7 +23,7 @@
                 <br>
                 <v-divider></v-divider>
                 <div class="pa-2">
-                    <v-list-item prepend-avatar="/public/icone_secundario_semfundo.png" class="d-flex justify-center"
+                    <v-list-item v-tooltip:end="'logoff'" prepend-avatar="/public/icone_secundario_semfundo.png" class="d-flex justify-center"
                         to="/login" variant="tonal">
                     </v-list-item>
                 </div>
@@ -35,16 +35,17 @@
 
             <v-app-bar-title>Meu estoque 001</v-app-bar-title>
             <v-btn>
-                <v-icon size="large" @click="toggleTheme">
-                    mdi-theme-light-dark
+                <v-icon size="large" @click="toggleTheme" v-tooltip="'mudar tema'">
+=                    mdi-theme-light-dark
                 </v-icon>
             </v-btn>
         </v-app-bar>
 
         <v-main>
-            <RouterView />
+            <v-container class="pa-4">
+                <RouterView />
+            </v-container>
         </v-main>
-
     </v-app>
 </template>
 
@@ -62,7 +63,7 @@ const items = [
     { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" },
     { text: 'Clientes', icon: 'mdi-account-group', to: "/clients" },
     { text: 'Fornecedores', icon: 'mdi-shopping', to: "/suppliers" },
-    { text: 'Perfil', icon: 'mdi-account', to: "/suppliers" }
+    { text: 'Perfil', icon: 'mdi-account', to: "/profile" }
 ]
 
 const theme = useTheme();
