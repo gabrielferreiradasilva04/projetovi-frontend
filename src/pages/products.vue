@@ -1,8 +1,16 @@
 <template>
-    <DefaultDataTable :headers="headers" :items="items" :show-add="true" />
+    <DefaultDataTable :headers="headers" :items="items" :show-add="true" @addItem="toogleProductDialog"/>
+    <AddProductDialog :dialog="showAddProductDialog" @toogle="toogleProductDialog"/>
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
+import AddProductDialog from '@/components/dialogs/addProductDialog.vue';
+import { ref } from 'vue';
+const showAddProductDialog = ref(false);
+
+const toogleProductDialog = () => {
+    showAddProductDialog.value = !showAddProductDialog.value;
+}
 
 const headers = [
     { title: 'Código', key: 'code' },

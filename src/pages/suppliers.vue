@@ -1,10 +1,15 @@
 <template>
-<DefaultDataTable :headers="headers" :items="suppliers" :show-add="true" />
+<DefaultDataTable :headers="headers" :items="suppliers" show-add="true" @addItem="toogleSupplierDialog"/>
+<AddSupplierDialog :dialog="showSupplierDialog" @toogle="toogleSupplierDialog"/>
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
+import AddSupplierDialog from '@/components/dialogs/addSupplierDialog.vue';
 import { ref } from 'vue'
-
+const showSupplierDialog = ref(false)
+const toogleSupplierDialog = () => {
+    showSupplierDialog.value = !showSupplierDialog.value;
+}
 const suppliers = [
     {
         name: 'ABC Supplies',
