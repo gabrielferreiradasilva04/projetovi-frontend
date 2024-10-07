@@ -1,9 +1,16 @@
 <template>
-    <DefaultDataTable :headers="headers" :items="clients" :show-add="true" />
+    <DefaultDataTable :headers="headers" :items="clients" :show-add="true" @addItem="toogleClientDialog"/>
+    <AddClientDialog :dialog="showAddClientDialog" @toogle="toogleClientDialog"/>
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
+import AddClientDialog from '@/components/dialogs/addClientDialog.vue';
 import { ref } from 'vue'
+
+const showAddClientDialog = ref(false)
+const toogleClientDialog = () => {
+    showAddClientDialog.value = !showAddClientDialog.value; 
+}
 
 const headers = [
     { title: 'Nome', key: 'firstName' },

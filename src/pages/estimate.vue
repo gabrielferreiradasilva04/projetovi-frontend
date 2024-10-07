@@ -7,8 +7,8 @@
 
                 <v-divider class="mx-4" inset vertical></v-divider>
 
-                <v-btn variant="tonal">
-                   Adicionar
+                <v-btn variant="tonal" @click="toogleAddEstimateDialog">
+                    <v-icon v-tooltip:bottom="'Novo'">mdi-plus</v-icon>
                 </v-btn>
 
             </v-toolbar>
@@ -54,13 +54,20 @@
                 <v-btn :disabled="page >= pageCount" density="comfortable" icon="mdi-arrow-right" variant="tonal"
                     rounded @click="nextPage"></v-btn>
             </div>
+
         </template>
     </v-data-iterator>
+    <AddEstimateDialog :dialog="showAddEstimateDialog" @toogle="toogleAddEstimateDialog" />
 </template>
 
 <script setup>
+import AddEstimateDialog from '@/components/dialogs/addEstimateDialog.vue';
 import { ref } from 'vue'
 const search = ref('');
+const showAddEstimateDialog = ref(false)
+const toogleAddEstimateDialog = () => {
+    showAddEstimateDialog.value = !showAddEstimateDialog.value
+}
 const estimates = ref([
     {
         title: "Estimate for project A",

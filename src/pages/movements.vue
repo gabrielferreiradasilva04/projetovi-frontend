@@ -1,10 +1,15 @@
 <template>
-    <DefaultDataTable :headers="headers" :items="movements" :show-add="false" />
-
+    <DefaultDataTable :headers="headers" :items="movements" :show-add="true" @addItem="toogleMovementDialog"/>
+    <AddMovementDialog :dialog="showMovementDialog" @toogle="toogleMovementDialog"/>
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
-
+import AddMovementDialog from '@/components/dialogs/addMovementDialog.vue';
+import { ref } from 'vue';
+const showMovementDialog = ref(false);
+const toogleMovementDialog = () => {
+    showMovementDialog.value = !showMovementDialog.value;
+}
 
 const headers = [
     { title: 'Date', key: 'date' },

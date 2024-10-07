@@ -7,8 +7,8 @@
 
                 <v-divider v-if="props.showAdd" class="mx-4" inset vertical></v-divider>
 
-                <v-btn v-if="props.showAdd" variant="tonal">
-                    Adicionar
+                <v-btn v-if="props.showAdd" variant="tonal" @click="$emit('addItem')">
+                    <v-icon v-tooltip:bottom="'Novo'">mdi-plus</v-icon>
                 </v-btn>
 
             </v-toolbar>
