@@ -23,8 +23,8 @@
                 <br>
                 <v-divider></v-divider>
                 <div class="pa-2">
-                    <v-list-item v-tooltip:end="'logoff'" prepend-avatar="/public/icone_secundario_semfundo.png" class="d-flex justify-center"
-                        to="/login" variant="tonal">
+                    <v-list-item v-tooltip:end="'logoff'" prepend-avatar="/public/icone_secundario_semfundo.png"
+                        class="d-flex justify-center" to="/login" variant="tonal">
                     </v-list-item>
                 </div>
             </v-list>
@@ -36,13 +36,13 @@
             <v-app-bar-title>Meu estoque 001</v-app-bar-title>
             <v-btn>
                 <v-icon size="large" @click="toggleTheme" v-tooltip="'mudar tema'">
-=                    mdi-theme-light-dark
+                    = mdi-theme-light-dark
                 </v-icon>
             </v-btn>
         </v-app-bar>
 
         <v-main>
-            <v-container class="pa-4">
+            <v-container class="pa-4" min-height="100vh">
                 <RouterView />
             </v-container>
         </v-main>

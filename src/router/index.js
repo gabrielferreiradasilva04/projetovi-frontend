@@ -8,13 +8,20 @@ const customRoutes = routes.map(route => {
   if (route.path === '/login') {
     return {
       ...route,
-      meta: { layout: 'authLayout' }
+      meta: { layout: 'auth' }
     }
   }
   if (route.path === '/register') {
     return {
       ...route,
-      meta: { layout: 'authLayout' }
+      meta: { layout: 'auth' }
+    }
+  }
+  if (route.path === '/chooseStock') {
+    return {
+      ...route,
+      meta: {
+        layout: 'chooseStock' }
     }
   }
   return route;

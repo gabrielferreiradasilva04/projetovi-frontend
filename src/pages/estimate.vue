@@ -1,7 +1,7 @@
 <template>
     <v-data-iterator :items="estimates" :items-per-page="9" :search="search">
         <template v-slot:header>
-            <v-toolbar flat class="pa-3">
+            <v-toolbar flat class="pa-3" rounded>
                 <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
                     hide-details single-line></v-text-field>
 
