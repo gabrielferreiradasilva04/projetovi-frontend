@@ -15,19 +15,17 @@
         </template>
 
         <template v-slot:item.actions="{}">
-                <v-btn  variant="text">
+                <v-btn size="small" variant="text">
                     <v-icon>
                         mdi-pencil
                     </v-icon>
                 </v-btn>
 
-                <v-btn variant="text">
+                <v-btn size="small" variant="text">
                     <v-icon>
                         mdi-delete
                     </v-icon>
                 </v-btn>
-
-
         </template>
     </v-data-table>
 </template>

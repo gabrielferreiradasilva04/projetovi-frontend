@@ -16,7 +16,6 @@ const headers = [
     { title: 'Nome', key: 'firstName' },
     { title: 'Telefone', key: 'phoneNumber' },
     { title: 'Email', key: 'email' },
-    { title: 'Data de Registro', key: 'registrationDate' },
     { title: 'Ativo', key: 'active' },
     { title: 'Ações', key: 'actions', sortable: false },
 ];
