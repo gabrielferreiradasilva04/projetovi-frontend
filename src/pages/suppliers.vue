@@ -1,5 +1,5 @@
 <template>
-<DefaultDataTable :headers="headers" :items="suppliers" show-add="true" @addItem="toogleSupplierDialog"/>
+<DefaultDataTable :headers="headers" :items="suppliers" :show-add="true" @addItem="toogleSupplierDialog"/>
 <AddSupplierDialog :dialog="showSupplierDialog" @toogle="toogleSupplierDialog"/>
 </template>
 <script setup>
@@ -64,10 +64,8 @@ const suppliers = [
 ];
 const headers = [
     { title: 'Nome', key: 'name' },
-    { title: 'Endereço', key: 'address' },
     { title: 'Telefone', key: 'phoneNumber' },
     { title: 'Email', key: 'email' },
-    { title: 'Registro', key: 'registrationDate' },
     { title: 'Ativo', key: 'active' },
     { title: 'Ações', key: 'actions', sortable: false },
 ];

@@ -7,27 +7,25 @@
 
                 <v-divider v-if="props.showAdd" class="mx-4" inset vertical></v-divider>
 
-                <v-btn v-if="props.showAdd" variant="tonal" @click="$emit('addItem')">
-                    <v-icon v-tooltip:bottom="'Novo'">mdi-plus</v-icon>
+                <v-btn v-if="props.showAdd"  @click="$emit('addItem')">
+                    <v-icon v-tooltip:bottom="'Adicionar'">mdi-plus</v-icon>
                 </v-btn>
 
             </v-toolbar>
         </template>
 
         <template v-slot:item.actions="{}">
-            <div class="d-flex justfy-center">
-                <v-btn size="small" variant="text">
+                <v-btn  variant="text">
                     <v-icon>
                         mdi-pencil
                     </v-icon>
                 </v-btn>
 
-                <v-btn size="small" variant="text">
+                <v-btn variant="text">
                     <v-icon>
                         mdi-delete
                     </v-icon>
                 </v-btn>
-            </div>
 
 
         </template>
@@ -41,8 +39,10 @@ import {ref} from 'vue'
 const props = defineProps({
     headers: Array,
     items: Array,
-    showAdd: Boolean
+    showAdd: Boolean,
 })
+
+
 
 const search = ref ('')
 

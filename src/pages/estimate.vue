@@ -7,7 +7,7 @@
 
                 <v-divider class="mx-4" inset vertical></v-divider>
 
-                <v-btn variant="tonal" @click="toogleAddEstimateDialog">
+                <v-btn  @click="toogleAddEstimateDialog">
                     <v-icon v-tooltip:bottom="'Novo'">mdi-plus</v-icon>
                 </v-btn>
 
@@ -22,10 +22,8 @@
                             <v-card-title>{{ item.raw.title }}</v-card-title>
                             <v-card-subtitle>Valor: {{ item.raw.total }}</v-card-subtitle>
                             <v-card-text class="ga-2">
-                                <p>{{ item.raw.description }}</p>
                                 <p>Data: {{ item.raw.date }}</p>
                                 <p>Validade: {{ item.raw.expirationDate }}</p>
-                                <p>Observações: {{ item.raw.observation }}</p>
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions class="ga-0">
