@@ -59,11 +59,16 @@ const drawer = ref(null)
 const items = [
     { text: 'Dashboard', icon: 'mdi-google-analytics', to: "/home" },
     { text: 'Produtos', icon: 'mdi-sitemap', to: "/products" },
+    { text: 'Categorias', icon: 'mdi-diversify', to: "/category" },
     { text: 'Orçamentos', icon: 'mdi-currency-usd', to: "/estimate" },
     { text: 'Movimentações', icon: 'mdi-swap-horizontal', to: "/movements" },
     { text: 'Clientes', icon: 'mdi-account-group', to: "/clients" },
     { text: 'Fornecedores', icon: 'mdi-shopping', to: "/suppliers" },
-    { text: 'Perfil', icon: 'mdi-account', to: "/profile" }
+
+    { text: 'Depósitos', icon: 'mdi-package', to: "/deposit" },
+    { text: 'Localizações', icon: 'mdi-map-marker-check', to: "/location" },
+    { text: 'Perfil', icon: 'mdi-account', to: "/profile" },
+
 ]
 
 const theme = useTheme();

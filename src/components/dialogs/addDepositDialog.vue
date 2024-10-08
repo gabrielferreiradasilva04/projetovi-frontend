@@ -1,8 +1,8 @@
 <template>
     <v-dialog v-model="props.dialog" max-width="800">
-        <v-card prepend-icon="mdi-swap-horizontal" title="Informações de Movimentação">
+        <v-card prepend-icon="mdi-package" title="Informações de Depósito">
             <v-card-text>
-                <MovementForm />
+                <DepositForm />
             </v-card-text>
             <VDivider />
             <v-card-actions>
@@ -16,7 +16,7 @@
 </template>
 <script setup>
 import { defineProps } from 'vue';
-import MovementForm from '../forms/movementForm.vue';
+import DepositForm from '../forms/depositForm.vue';
 
 const props = defineProps({
     dialog: Boolean
