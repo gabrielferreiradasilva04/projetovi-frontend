@@ -1,6 +1,5 @@
 <template>
-    <v-app>
-        <v-navigation-drawer v-model="drawer" color="primary">
+        <v-navigation-drawer app fixed v-model="drawer" color="primary">
             <v-list>
                 <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
                     subtitle="gabriel_silva@outlook.com" title="Gabriel Silva">
@@ -10,7 +9,7 @@
             <v-divider></v-divider>
 
             <v-list nav>
-                <RouterLink v-for="(item, i) in items" :key="i" :to="item.to">
+                <RouterLink v-for="(item, i) in items" :key="i" :to="item.to" @click="updateTitle(item.text)">
 
                     <v-list-item :value="item">
                         <template v-slot:prepend>
@@ -30,10 +29,10 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar color="primary">
+        <v-app-bar color="primary" app fixed>
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-            <v-app-bar-title>Meu estoque 001</v-app-bar-title>
+            <v-app-bar-title>{{ selected_option }}</v-app-bar-title>
             <v-btn>
                 <v-icon size="large" @click="toggleTheme" v-tooltip="'mudar tema'">
                     = mdi-theme-light-dark
@@ -41,12 +40,9 @@
             </v-btn>
         </v-app-bar>
 
-        <v-main>
-            <v-container class="pa-4" min-height="100vh">
+            <v-container class="pa-0" min-height="100vh">
                 <RouterView />
             </v-container>
-        </v-main>
-    </v-app>
 </template>
 
 <script setup>
@@ -71,6 +67,10 @@ const items = [
 
 ]
 
+const selected_option = ref('Olá')
+const updateTitle = (newTitle) => {
+    selected_option.value = newTitle;
+}
 const theme = useTheme();
 
 const isDark = ref(false);

@@ -8,7 +8,7 @@
 
                 <v-divider class="mx-4" inset vertical></v-divider>
 
-                <v-btn variant="tonal">
+                <v-btn variant="tonal" @click="toogleStockDialog">
                     Adicionar
                 </v-btn>
 
@@ -63,11 +63,18 @@
             </div>
         </template>
     </v-data-iterator>
+    <AddStockDialog :dialog="showStockDialog" @toogle="toogleStockDialog"/>
 </template>
 
 <script setup>
+import AddStockDialog from '@/components/dialogs/addStockDialog.vue';
 import { ref } from 'vue'
 const search = ref('');
+const showStockDialog = ref(false);
+const toogleStockDialog = () => {
+    showStockDialog.value = !showStockDialog.value
+}
+
 const stocks = [
     {
         title: "Warehouse A",
