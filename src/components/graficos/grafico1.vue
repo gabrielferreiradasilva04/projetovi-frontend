@@ -17,30 +17,49 @@ const data = [
     { year: 2014, count: 22 },
     { year: 2015, count: 30 },
     { year: 2016, count: 28 },
+    { year: 2017, count: 35 },
+    { year: 2018, count: 40 },
+    { year: 2019, count: 38 },
+    { year: 2020, count: 42 },
+    { year: 2021, count: 45 },
+    { year: 2022, count: 48 },
+    { year: 2023, count: 50 },
+    { year: 2024, count: 55 },
+    { year: 2025, count: 60 },
 ];
+
 
 onMounted(() => {
     const ctx = document.getElementById('chart').getContext('2d');
     new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: data.map(row => row.year),
             datasets: [
                 {
-                    label: 'Acquisitions by year',
+                    label: 'Aquisições por ano',
                     data: data.map(row => row.count),
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
+                    borderWidth: 3,
                 }
             ]
         },
         options: {
+            animations: {
+                tension: {
+                    duration: 1000,
+                    easing: 'linear',
+                    from: 1,
+                    to: 0,
+                    loop: false
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true
                 }
-            }
+            },
         }
     });
 });

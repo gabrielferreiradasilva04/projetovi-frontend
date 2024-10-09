@@ -1,8 +1,8 @@
 <template>
     <v-dialog v-model="props.dialog" max-width="800">
-        <v-card prepend-icon="mdi-diversify" title="Informações de Categoria">
+        <v-card prepend-icon="mdi-sitemap" title="Informações de Estoque">
             <v-card-text>
-                <CategoryForm />
+                <StockForm />
             </v-card-text>
             <VDivider />
             <v-card-actions>
@@ -16,10 +16,9 @@
 </template>
 <script setup>
 import { defineProps } from 'vue';
-import ClientForm from '../forms/clientForm.vue';
-import CategoryForm from '../forms/categoryForm.vue';
+import StockForm from '../forms/StockForm.vue';
 
 const props = defineProps({
     dialog: Boolean
 })
-</script>com
+</script>

@@ -1,5 +1,5 @@
 <template>
-    <canvas id="chart2"></canvas>
+    <canvas height="100" id="chart3"></canvas>
 </template>
 
 <script setup>
@@ -20,18 +20,22 @@ const data = [
 ];
 
 onMounted(() => {
-    const ctx = document.getElementById('chart2').getContext('2d');
+    const ctx = document.getElementById('chart3').getContext('2d');
     new Chart(ctx, {
-        type: 'polarArea',
+        type: 'doughnut',
         data: {
             labels: data.map(row => row.year),
             datasets: [
                 {
                     label: 'Acquisitions by year',
                     data: data.map(row => row.count),
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
                     borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 3
+                    borderWidth: 0
                 }
             ]
         },

@@ -2,7 +2,7 @@
     <v-dialog v-model="props.dialog" max-width="800">
         <v-card prepend-icon="mdi-swap-horizontal" title="Informações de Movimentação">
             <v-card-text>
-                <MovementForm />
+                <MovementTab />
             </v-card-text>
             <VDivider />
             <v-card-actions>
@@ -16,7 +16,7 @@
 </template>
 <script setup>
 import { defineProps } from 'vue';
-import MovementForm from '../forms/movementForm.vue';
+import MovementTab from '../movement/movementTab.vue';
 
 const props = defineProps({
     dialog: Boolean

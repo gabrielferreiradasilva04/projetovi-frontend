@@ -6,7 +6,7 @@
         </v-btn>
     </v-app-bar>
     <v-main>
-        <v-container class="pa-2" min-height="100vh">
+        <v-container class="pa-0" min-height="100vh">
             <RouterView />
         </v-container>
     </v-main>
