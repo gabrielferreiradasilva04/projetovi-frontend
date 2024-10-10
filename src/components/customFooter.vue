@@ -1,5 +1,5 @@
 <template>
-    <v-footer app fixed class="text-center d-flex flex-column mx-auto" color="primary" border>
+    <v-footer class="text-center d-flex flex-column mx-auto" color="primary" border>
         <div>
             <v-btn v-for="icon in icons" :key="icon" :icon="icon" class="mx-4" variant="text"></v-btn>
         </div>
@@ -19,6 +19,7 @@ export default {
             'mdi-twitter',
             'mdi-linkedin',
             'mdi-instagram',
+            'mdi-package'
         ],
     }),
 }

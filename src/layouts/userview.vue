@@ -1,5 +1,5 @@
 <template>
-        <v-navigation-drawer app fixed v-model="drawer" color="primary">
+        <v-navigation-drawer temporary app fixed v-model="drawer" color="primary">
             <v-list>
                 <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
                     subtitle="gabriel_silva@outlook.com" title="Gabriel Silva">
