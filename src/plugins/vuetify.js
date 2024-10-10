@@ -19,8 +19,8 @@ export default createVuetify({
       light: {
         dark: false,
         colors: {
-          primary: '#037171',
-          secondary: '#009F93',
+          primary: colors.purple.darken4,
+          secondary: colors.purple.darken3,
           error: colors.red.darken2,
           warning: colors.orange.lighten1,
           success: colors.lightGreen.lighten1
@@ -29,7 +29,7 @@ export default createVuetify({
       dark: {
         light: false,
         colors: {
-          primary: '#1D2D44',
+          primary: colors.deepPurple.darken4,
           secondary: '#3E5C76',
           error: colors.red.darken2,
           warning: colors.orange.lighten1,
