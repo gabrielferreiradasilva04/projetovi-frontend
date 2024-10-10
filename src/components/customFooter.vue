@@ -19,6 +19,7 @@ export default {
             'mdi-twitter',
             'mdi-linkedin',
             'mdi-instagram',
+            'mdi-package'
         ],
     }),
 }
