@@ -1,60 +1,65 @@
 <template>
-    <v-data-iterator :items="estimates" :items-per-page="9" :search="search">
-        <template v-slot:header>
-            <v-toolbar rounded flat class="pa-3" >
-                <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
-                    hide-details single-line></v-text-field>
+    <v-card class="my-2" hover>
+        <v-img src="/public/estimate.svg" max-height="400" cover></v-img>
+    </v-card>
+    <v-card>
+        <v-data-iterator :items="estimates" :items-per-page="9" :search="search">
+            <template v-slot:header>
+                <v-toolbar rounded flat class="pa-3">
+                    <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
+                        hide-details single-line></v-text-field>
 
-                <v-divider class="mx-4" inset vertical></v-divider>
+                    <v-divider class="mx-4" inset vertical></v-divider>
 
-                <v-btn  @click="toogleAddEstimateDialog">
-                    <v-icon v-tooltip:bottom="'Novo'">mdi-plus</v-icon>
-                </v-btn>
+                    <v-btn @click="toogleAddEstimateDialog">
+                        <v-icon v-tooltip:bottom="'Novo'">mdi-plus</v-icon>
+                    </v-btn>
 
-            </v-toolbar>
-        </template>
+                </v-toolbar>
+            </template>
 
-        <template v-slot:default="{ items }">
-            <v-container class="pa-2" fluid>
-                <v-row dense>
-                    <v-col v-for="item in items" :key="item.raw.title" cols="auto" md="4">
-                        <v-card class="pb-3" border hover>
-                            <v-card-title>{{ item.raw.title }}</v-card-title>
-                            <v-card-subtitle>Valor: {{ item.raw.total }}</v-card-subtitle>
-                            <v-card-text class="ga-2">
-                                <p>Data: {{ item.raw.date }}</p>
-                                <p>Validade: {{ item.raw.expirationDate }}</p>
-                            </v-card-text>
-                            <v-divider></v-divider>
-                            <v-card-actions class="ga-0">
-                                <v-btn>
-                                    <v-icon size="large">mdi-pencil</v-icon>
-                                </v-btn>
-                                <v-btn>
-                                    <v-icon size="large">mdi-delete</v-icon>
-                                </v-btn>
-                            </v-card-actions>
-                        </v-card>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </template>
+            <template v-slot:default="{ items }">
+                <v-container class="pa-2" fluid>
+                    <v-row dense>
+                        <v-col v-for="item in items" :key="item.raw.title" cols="auto" md="4">
+                            <v-card class="pb-3" border hover>
+                                <v-card-title>{{ item.raw.title }}</v-card-title>
+                                <v-card-subtitle>Valor: {{ item.raw.total }}</v-card-subtitle>
+                                <v-card-text class="ga-2">
+                                    <p>Data: {{ item.raw.date }}</p>
+                                    <p>Validade: {{ item.raw.expirationDate }}</p>
+                                </v-card-text>
+                                <v-divider></v-divider>
+                                <v-card-actions class="ga-0">
+                                    <v-btn>
+                                        <v-icon size="large">mdi-pencil</v-icon>
+                                    </v-btn>
+                                    <v-btn>
+                                        <v-icon size="large">mdi-delete</v-icon>
+                                    </v-btn>
+                                </v-card-actions>
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </template>
 
-        <template v-slot:footer="{ page, pageCount, prevPage, nextPage }">
-            <div class="d-flex align-center justify-center pa-4">
-                <v-btn :disabled="page === 1" density="comfortable" icon="mdi-arrow-left" variant="tonal" rounded
-                    @click="prevPage"></v-btn>
+            <template v-slot:footer="{ page, pageCount, prevPage, nextPage }">
+                <div class="d-flex align-center justify-center pa-4">
+                    <v-btn :disabled="page === 1" density="comfortable" icon="mdi-arrow-left" variant="tonal" rounded
+                        @click="prevPage"></v-btn>
 
-                <div class="mx-2 text-caption">
-                    Page {{ page }} of {{ pageCount }}
+                    <div class="mx-2 text-caption">
+                        Page {{ page }} of {{ pageCount }}
+                    </div>
+
+                    <v-btn :disabled="page >= pageCount" density="comfortable" icon="mdi-arrow-right" variant="tonal"
+                        rounded @click="nextPage"></v-btn>
                 </div>
 
-                <v-btn :disabled="page >= pageCount" density="comfortable" icon="mdi-arrow-right" variant="tonal"
-                    rounded @click="nextPage"></v-btn>
-            </div>
-
-        </template>
-    </v-data-iterator>
+            </template>
+        </v-data-iterator>
+    </v-card>
     <AddEstimateDialog :dialog="showAddEstimateDialog" @toogle="toogleAddEstimateDialog" />
 </template>
 

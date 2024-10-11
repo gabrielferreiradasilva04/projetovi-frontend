@@ -39,7 +39,7 @@
             </v-icon>
         </v-btn>
     </v-app-bar>
-        <v-container min-height="100vh" min-width="100vw">
+        <v-container min-height="100vh" min-width="98vw">
             <RouterView />
         </v-container>
 

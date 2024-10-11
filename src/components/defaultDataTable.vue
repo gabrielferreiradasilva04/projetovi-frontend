@@ -1,20 +1,22 @@
 <template>
-    <v-data-table :headers="props.headers" :items="props.items" :search="search" no-data-text="Ops... Nada por aqui">
-        <template v-slot:top>
-            <v-toolbar flat class="pa-3" rounded >
-                <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
-                    hide-details single-line></v-text-field>
+    <v-card>
+        <v-data-table :headers="props.headers" :items="props.items" :search="search"
+            no-data-text="Ops... Nada por aqui">
+            <template v-slot:top>
+                <v-toolbar flat class="pa-3" rounded>
+                    <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
+                        hide-details single-line></v-text-field>
 
-                <v-divider v-if="props.showAdd" class="mx-4" inset vertical></v-divider>
+                    <v-divider v-if="props.showAdd" class="mx-4" inset vertical></v-divider>
 
-                <v-btn v-if="props.showAdd"  @click="$emit('addItem')">
-                    <v-icon v-tooltip:bottom="'Adicionar'">mdi-plus</v-icon>
-                </v-btn>
+                    <v-btn v-if="props.showAdd" @click="$emit('addItem')">
+                        <v-icon v-tooltip:bottom="'Adicionar'">mdi-plus</v-icon>
+                    </v-btn>
 
-            </v-toolbar>
-        </template>
+                </v-toolbar>
+            </template>
 
-        <template v-slot:item.actions="{}">
+            <template v-slot:item.actions="{}">
                 <v-btn size="small" variant="text">
                     <v-icon>
                         mdi-pencil
@@ -26,8 +28,9 @@
                         mdi-delete
                     </v-icon>
                 </v-btn>
-        </template>
-    </v-data-table>
+            </template>
+        </v-data-table>
+    </v-card>
 </template>
 
 <script setup>

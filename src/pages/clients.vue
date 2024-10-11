@@ -1,6 +1,9 @@
 <template>
-    <DefaultDataTable :headers="headers" :items="clients" :show-add="true" @addItem="toogleClientDialog"/>
-    <AddClientDialog :dialog="showAddClientDialog" @toogle="toogleClientDialog"/>
+    <v-card class="my-2" hover>
+        <v-img src="/public/clientes.jpg" max-height="400" cover></v-img>
+    </v-card>
+    <DefaultDataTable :headers="headers" :items="clients" :show-add="true" @addItem="toogleClientDialog" />
+    <AddClientDialog :dialog="showAddClientDialog" @toogle="toogleClientDialog" />
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
