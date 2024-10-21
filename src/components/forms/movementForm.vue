@@ -2,17 +2,19 @@
     <v-form class="my-4">
         <v-row>
             <v-col cols="12" md="6">
-                <v-combobox clearable label="Produto"
-                    :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
-                    variant="outlined"></v-combobox>
+                <v-combobox clearable label="Produto" :items="['Produto X',
+                    'Produto Y',
+                    'Produto Z',
+                    'Produto W',
+                    'Produto V']" variant="outlined"></v-combobox>
                 <v-date-input label="Data Movimento" prepend-icon="" prepend-inner-icon="mdi-calendar"
                     variant="outlined"></v-date-input>
 
-                <v-text-field  variant="outlined" prepend-inner-icon="mdi-currency-brl" label="Valor Unitário" disabled
+                <v-text-field variant="outlined" prepend-inner-icon="mdi-currency-brl" label="Valor Unitário" disabled
                     single-line></v-text-field>
 
-                <v-text-field disabled variant="outlined" prepend-inner-icon="mdi-currency-brl" label="Total Movimentado"
-                    type="number"></v-text-field>
+                <v-text-field disabled variant="outlined" prepend-inner-icon="mdi-currency-brl"
+                    label="Total Movimentado" type="number"></v-text-field>
             </v-col>
             <v-col cols="12" md="6" xs="3">
                 <v-text-field variant="outlined" prepend-inner-icon="mdi-numeric" label="Quantidade"

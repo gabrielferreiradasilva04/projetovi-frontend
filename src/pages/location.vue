@@ -1,11 +1,14 @@
 <template>
+    <v-card variant="text" hover class="my-2">
+        <v-img src="/public/localizacoes.jpg" cover max-height="400"></v-img>
+    </v-card>
     <DefaultDataTable :headers="headers" :items="locations" :show-add="true" @addItem="toogleDialogLocation" />
     <AddLocationDialog :dialog="showDialogLocation" @toogle="toogleDialogLocation" />
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
 import AddLocationDialog from '@/components/dialogs/addLocationDialog.vue';
-import {ref} from 'vue'
+import { ref } from 'vue'
 const showDialogLocation = ref(false)
 const toogleDialogLocation = () => {
     showDialogLocation.value = !showDialogLocation.value;
