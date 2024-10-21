@@ -1,6 +1,9 @@
 <template>
-    <DefaultDataTable :headers="headers" :items="deposits" :show-add="true" @addItem="toogleDepositDialog"/>
-    <AddDepositDialog :dialog="showDepositDialog" @toogle="toogleDepositDialog"/>
+    <v-card variant="text" hover class="my-2">
+        <v-img src="/public/deposito.jpg" cover max-height="400"></v-img>
+    </v-card>
+    <DefaultDataTable :headers="headers" :items="deposits" :show-add="true" @addItem="toogleDepositDialog" />
+    <AddDepositDialog :dialog="showDepositDialog" @toogle="toogleDepositDialog" />
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';

@@ -14,7 +14,11 @@
             </v-col>
             <v-col cols="12" md="6" xs="3">
                 <v-select clearable label="Cliente"
-                    :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+                    :items="['Cliente 1',
+                        'Cliente 2',
+                        'Cliente 3',
+                        'Cliente 4',
+                        'Cliente 5']"
                     variant="outlined"></v-select>
                 <v-select clearable label="Status" :items="['ativo', 'inativo']" variant="outlined"></v-select>
                 <v-textarea clearable label="Descrição breve" variant="outlined"></v-textarea>
