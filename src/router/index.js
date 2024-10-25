@@ -18,14 +18,17 @@ const customRoutes = routes.map(route => {
       meta: { layout: 'auth' }
     }
   }
+
   return route;
 });
+
+
 customRoutes.push({
   path: '/:catchAll(.*)',
   name: 'notFound',
   component: NotFound,
   meta: {
-      layout: "notFoundAndAnauthorized"
+    layout: "notFoundAndAnauthorized"
   }
 });
 

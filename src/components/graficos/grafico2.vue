@@ -23,7 +23,7 @@ const data = [
 onMounted(() => {
     const ctx = document.getElementById('chart2').getContext('2d');
     new Chart(ctx, {
-        type: 'polarArea',
+        type: 'bar',
         data: {
             labels: data.map(row => row.year),
             datasets: [
