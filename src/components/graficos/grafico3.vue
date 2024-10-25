@@ -22,7 +22,7 @@ const data = [
 onMounted(() => {
     const ctx = document.getElementById('chart3').getContext('2d');
     new Chart(ctx, {
-        type: 'doughnut',
+        type: 'bar',
         data: {
             labels: data.map(row => row.year),
             datasets: [
