@@ -18,7 +18,14 @@ const customRoutes = routes.map(route => {
       meta: { layout: 'auth' }
     }
   }
-
+  if (route.path === '/chooseStock') {
+    return {
+      ...route,
+      meta: {
+        layout: 'chooseStock'
+      }
+    }
+  }
   return route;
 });
 
