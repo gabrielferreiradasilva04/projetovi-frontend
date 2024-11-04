@@ -1,5 +1,5 @@
 <template>
-    <v-container min-width="90vw">
+    <v-container>
         <div class="d-flex justify-end mb-3">
             <v-card class="px-4 py-2">
                 <v-icon class="mr-2">mdi-calendar</v-icon>
