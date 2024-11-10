@@ -22,4 +22,4 @@ import CategoryForm from '../forms/categoryForm.vue';
 const props = defineProps({
     dialog: Boolean
 })
-</script>com
+</script>
