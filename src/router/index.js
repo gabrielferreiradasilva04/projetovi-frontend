@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
 import { routes } from 'vue-router/auto-routes'
 import NotFound from '@/pages/notFound.vue';
+import { useAuthStore } from '@/stores/authStore';
 
 
 const customRoutes = routes.map(route => {
@@ -22,11 +23,19 @@ const customRoutes = routes.map(route => {
     return {
       ...route,
       meta: {
-        layout: 'chooseStock'
+        layout: 'chooseStock',
+        requiresAuth: true
       }
     }
   }
-  return route;
+  return {
+    ...route,
+    meta: {
+      ...route.meta,
+      requiresAuth: true // Protege todas as outras rotas
+    }
+  }
+
 });
 
 
@@ -43,6 +52,16 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: setupLayouts(customRoutes),
 })
+
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore();
+
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    next('/login');
+  } else {
+    next();
+  }
+});
 
 // Workaround for https://github.com/vitejs/vite/issues/11804
 router.onError((err, to) => {

@@ -1,6 +1,6 @@
 <template>
     <v-img class="mx-auto my-6" max-width="228" src="/public/icone_secundario_semfundo.png"></v-img>
-    <v-form v-on:submit.prevent="login">
+    <v-form v-on:submit.prevent="handleLogin">
         <v-card class="mx-auto pa-12 pb-8" elevation="12" max-width="448" rounded="lg">
             <div class="text-subtitle-1 text-medium-emphasis">Conta</div>
 
@@ -40,19 +40,28 @@
         </v-card>
     </v-form>
 
+    <CustomSnackbar :time="2000" :message="authStore.errorMessage" :color="'error'" />
+
 
 </template>
 
 <script setup>
 import { ref } from 'vue';
-const visible = ref(false)
 import { useAuthStore } from '@/stores/authStore';
+import CustomSnackbar from '@/components/customSnackbar.vue';
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const visible = ref(false)
 const email = ref('')
 const password = ref('')
 
 const authStore = useAuthStore();
-const login = async () => {
-    authStore.login(email.value, password.value)
+async function handleLogin() {
+    await authStore.login(email.value, password.value);
+    if (authStore.isAuthenticated) {
+        router.push('/chooseStock')
+    }
 }
 </script>
 

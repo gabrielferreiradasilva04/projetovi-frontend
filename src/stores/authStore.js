@@ -1,26 +1,51 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
-import { errorMessages } from "vue/compiler-sfc";
+
 
 export const useAuthStore = defineStore('auth', {
     state: () => ({
 
         token: '',
         user: null,
-        errorMessage: ''
+        errorMessage: '',
+        isAuthenticated: false
     }),
     actions: {
         async login(email, password) {
-            const request = await api.post('/auth/login', {
-                email, password
-            }, { withCredentials: true })
-                .then(function (response) {
-                    console.log("login")
-                }).catch(error => {
-                    this.errorMessage = error.response.data.message;
-                    console.log(error.response.data.message)
-                    alert(this.errorMessage);
-                })
+            if (email === '' || password === '') {
+                this.errorMessage = 'Preencha todos os campos';
+                return;
+            }
+            this.errorMessage = '';
+            try {
+                console.log('realizando request..')
+                const request = await api.post('/auth/login', {
+                    email, password
+                }, { withCredentials: true })
+
+                this.isAuthenticated = true;
+
+            } catch (error) {
+                if (error.response) {
+                    if (error.response.status === 403) {
+                        this.errorMessage = 'Login ou senha inválidos';
+                        this.isAuthenticated = false;
+                        return;
+                    }
+                } else {
+                    this.errorMessage = 'Erro desconhecido'
+                    this.isAuthenticated = false;
+                    console.log(error);
+                    return;
+                }
+                console.log(error);
+                this.errorMessage = error.response.data.message;
+                this.isAuthenticated = false;
+            }
+        },
+
+        logout() {
+            this.isAuthenticated = false;
         }
     }
 });
