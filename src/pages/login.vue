@@ -1,6 +1,6 @@
 <template>
     <v-img class="mx-auto my-6" max-width="228" src="/public/icone_secundario_semfundo.png"></v-img>
-    <v-form v-on:submit.prevent="handleLogin">
+    <v-form transition="fade-transition" v-on:submit.prevent="handleLogin">
         <v-card class="mx-auto pa-12 pb-8" elevation="12" max-width="448" rounded="lg">
             <div class="text-subtitle-1 text-medium-emphasis">Conta</div>
 
@@ -60,7 +60,7 @@ const authStore = useAuthStore();
 async function handleLogin() {
     await authStore.login(email.value, password.value);
     if (authStore.isAuthenticated) {
-        router.push('/chooseStock')
+        router.push('/loadingStocks')
     }
 }
 </script>

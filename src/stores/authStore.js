@@ -18,10 +18,13 @@ export const useAuthStore = defineStore('auth', {
             }
             this.errorMessage = '';
             try {
-                console.log('realizando request..')
                 const request = await api.post('/auth/login', {
                     email, password
                 }, { withCredentials: true })
+
+                const id = request.data.uuid;
+
+                localStorage.setItem('userId', id);
 
                 this.isAuthenticated = true;
 
