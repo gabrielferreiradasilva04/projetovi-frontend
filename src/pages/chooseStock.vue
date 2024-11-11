@@ -34,7 +34,7 @@
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions class="ga-0">
-                                <v-btn v-tooltip:bottom="'Editar'">
+                                <v-btn @click="toogleStockDialog(item)" v-tooltip:bottom="'Editar'">
                                     <v-icon size="large">mdi-pencil</v-icon>
                                 </v-btn>
                                 <v-divider vertical></v-divider>
@@ -77,28 +77,33 @@
             </v-card-subtitle>
         </v-card>
     </v-container>
-    <AddStockDialog :dialog="showStockDialog" @toogle="toogleStockDialog" />
+    <RegisterSotckDialog :stock="selectedStock" :dialog="showStockDialog" @toogle="toogleStockDialog" />
 
 </template>
 
 <script setup>
-import AddStockDialog from '@/components/dialogs/addStockDialog.vue';
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useStockStore } from '@/stores/stockStore';
+import RegisterSotckDialog from '@/components/dialogs/registerSotckDialog.vue';
 
 const search = ref('');
 const showStockDialog = ref(false);
-const toogleStockDialog = () => {
+const selectedStock = ref({})
+const store = useStockStore();
+
+const toogleStockDialog = (stock) => {
+    if (stock != null) {
+        selectedStock.value = stock;
+    }
     showStockDialog.value = !showStockDialog.value
 }
-
-const store = useStockStore();
-const stocks = ref([
-]);
 
 onMounted(() => {
     console.log(store.userStocks)
     store.getAuthenticatedUserStocks();
+})
+onUnmounted(() => {
+    selectedStock.value = {}
 })
 
 
