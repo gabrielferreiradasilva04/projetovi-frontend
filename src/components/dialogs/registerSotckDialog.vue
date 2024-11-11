@@ -56,8 +56,16 @@ const store = useStockStore();
 
 async function save() {
     store.saveNewStock(stock.value);
+    stock.value = {
+        title: '',
+        description: '',
+        address: '',
+        contact: '',
+        totalCapacity: 0
+    }
 }
 const props = defineProps({
-    dialog: Boolean
+    dialog: Boolean,
+    stock: {}
 });
 </script>
