@@ -34,7 +34,7 @@
                             </v-card-text>
                             <v-divider></v-divider>
                             <v-card-actions class="ga-0">
-                                <v-btn @click="toogleStockDialog(item)" v-tooltip:bottom="'Editar'">
+                                <v-btn @click="toogleStockDialog(item.raw)" v-tooltip:bottom="'Editar'">
                                     <v-icon size="large">mdi-pencil</v-icon>
                                 </v-btn>
                                 <v-divider vertical></v-divider>
@@ -77,7 +77,8 @@
             </v-card-subtitle>
         </v-card>
     </v-container>
-    <RegisterSotckDialog :stock="selectedStock" :dialog="showStockDialog" @toogle="toogleStockDialog" />
+    <RegisterSotckDialog :edit-mode="editMode" :stock="selectedStock" :dialog="showStockDialog"
+        @toogle="toogleStockDialog" />
 
 </template>
 
@@ -88,12 +89,24 @@ import RegisterSotckDialog from '@/components/dialogs/registerSotckDialog.vue';
 
 const search = ref('');
 const showStockDialog = ref(false);
-const selectedStock = ref({})
+const selectedStock = ref({
+    id: '',
+    title: '',
+    description: '',
+    address: '',
+    contact: '',
+    totalCapacity: 0
+})
 const store = useStockStore();
+const editMode = ref(false);
 
 const toogleStockDialog = (stock) => {
     if (stock != null) {
         selectedStock.value = stock;
+        editMode.value = true;
+    } else {
+        selectedStock.value = {};
+        editMode.value = false;
     }
     showStockDialog.value = !showStockDialog.value
 }
