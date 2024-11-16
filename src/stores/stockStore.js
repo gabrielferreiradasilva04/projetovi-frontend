@@ -10,7 +10,6 @@ export const useStockStore = defineStore('stock', {
             color: '',
             message: ''
         }
-
     }),
     actions: {
         addStockOnUserStocks(stock) {

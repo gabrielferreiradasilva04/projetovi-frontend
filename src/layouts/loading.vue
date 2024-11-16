@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LoadingStockLayout from './loadingStockLayout.vue';
+import LoadingStockLayout from './loadingLayout.vue';
 
 </script>
 
