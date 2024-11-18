@@ -1,26 +1,28 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
 
-export const useCategoryStore = defineStore('category', {
+
+export const useUnitMeasureStore = defineStore('unitMeasure', {
     state: () => ({
-        categories: [],
+        unitMeasures: [],
         snackbarConfig: {
             time: 0,
             color: '',
             message: ''
         },
         headers: [
-            { title: 'Descrição', key: 'description' },
-            { title: 'Ações', key: 'actions', sortable: false, align: 'end'},
+            { title: 'Title', key: 'title' },
+            { title: 'Description', key: 'description' },
+            { title: 'Ações', key: 'actions', sortable: false, align: 'end' },
         ]
     }),
     actions: {
         async listAll() {
-            const request = await api.get('/categories', { withCredentials: true });
+            const request = await api.get('/unitMeasures', { withCredentials: true });
 
             if (request.status === 200) {
-                const categoriesRequest = request.data
-                this.categories = categoriesRequest;
+                const unitMeasures = request.data
+                this.unitMeasures = unitMeasures;
             } else {
                 this.snackbarConfig = {
                     time: 2000,

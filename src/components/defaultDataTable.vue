@@ -17,17 +17,19 @@
             </template>
 
             <template v-slot:item.actions="{}">
-                <v-btn size="small" variant="text">
-                    <v-icon>
-                        mdi-pencil
-                    </v-icon>
-                </v-btn>
+                <div class="text-end">
+                    <v-btn size="small" variant="text">
+                        <v-icon>
+                            mdi-pencil
+                        </v-icon>
+                    </v-btn>
 
-                <v-btn size="small" variant="text">
-                    <v-icon>
-                        mdi-delete
-                    </v-icon>
-                </v-btn>
+                    <v-btn size="small" variant="text">
+                        <v-icon>
+                            mdi-delete
+                        </v-icon>
+                    </v-btn>
+                </div>
             </template>
         </v-data-table>
     </v-card>
@@ -35,7 +37,7 @@
 
 <script setup>
 import { defineProps } from 'vue';
-import {ref} from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
     headers: Array,
@@ -45,6 +47,6 @@ const props = defineProps({
 
 
 
-const search = ref ('')
+const search = ref('')
 
 </script>

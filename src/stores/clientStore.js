@@ -1,26 +1,29 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
 
-export const useCategoryStore = defineStore('category', {
+
+export const useClientStore = defineStore('client', {
     state: () => ({
-        categories: [],
+        clients: [],
         snackbarConfig: {
             time: 0,
             color: '',
             message: ''
         },
         headers: [
-            { title: 'Descrição', key: 'description' },
-            { title: 'Ações', key: 'actions', sortable: false, align: 'end'},
-        ]
+            { title: 'Nome', key: 'firstName' },
+            { title: 'Telefone', key: 'phoneNumber' },
+            { title: 'Email', key: 'email' },
+            { title: 'Ativo', key: 'active' },
+            { title: 'Ações', key: 'actions', sortable: false },]
     }),
     actions: {
         async listAll() {
-            const request = await api.get('/categories', { withCredentials: true });
+            const request = await api.get('/clients', { withCredentials: true });
 
             if (request.status === 200) {
-                const categoriesRequest = request.data
-                this.categories = categoriesRequest;
+                const clientsRquest = request.data
+                this.clients = clientsRquest;
             } else {
                 this.snackbarConfig = {
                     time: 2000,

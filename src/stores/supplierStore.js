@@ -1,26 +1,32 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
 
-export const useCategoryStore = defineStore('category', {
+export const useSupplierStore = defineStore('supplier', {
     state: () => ({
-        categories: [],
+        currentSupplier: null,
+        suppliers: [],
         snackbarConfig: {
             time: 0,
             color: '',
             message: ''
         },
         headers: [
-            { title: 'Descrição', key: 'description' },
-            { title: 'Ações', key: 'actions', sortable: false, align: 'end'},
+            { title: 'Nome', key: 'name' },
+            { title: 'Telefone', key: 'phoneNumber' },
+            { title: 'Email', key: 'email' },
+            { title: 'Ações', key: 'actions', sortable: false, align: 'end' },
         ]
+
     }),
     actions: {
         async listAll() {
-            const request = await api.get('/categories', { withCredentials: true });
+            const request = await api.get('/suppliers',
+                { withCredentials: true }
+            );
 
             if (request.status === 200) {
-                const categoriesRequest = request.data
-                this.categories = categoriesRequest;
+                const suppliersRequest = request.data;
+                this.suppliers = suppliersRequest;
             } else {
                 this.snackbarConfig = {
                     time: 2000,
@@ -28,6 +34,7 @@ export const useCategoryStore = defineStore('category', {
                     message: 'Algo deu errado, tente novamente mais tarde...'
                 }
             }
+
         }
     }
 })
