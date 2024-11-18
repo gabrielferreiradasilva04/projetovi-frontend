@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useAuthStore } from "./authStore";
 import { api } from "@/services/axiosConfig";
 
 export const useStockStore = defineStore('stock', {
@@ -10,7 +11,6 @@ export const useStockStore = defineStore('stock', {
             color: '',
             message: ''
         }
-
     }),
     actions: {
         addStockOnUserStocks(stock) {
@@ -27,9 +27,11 @@ export const useStockStore = defineStore('stock', {
             this.snackbarConfig.color = '';
             this.snackbarConfig.time = 0;
             this.snackbarConfig.message = '';
+
+            const userStore = useAuthStore();
+
             try {
-                const id = localStorage.getItem('userId');
-                const request = await api.get('/users/stocks/' + id.toString(), { withCredentials: true })
+                const request = await api.get('/users/stocks/' + userStore.user.id, { withCredentials: true })
                 this.userStocks = request.data;
             } catch (error) {
                 if (error) {

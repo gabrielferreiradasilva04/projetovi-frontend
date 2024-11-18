@@ -22,9 +22,9 @@ export const useAuthStore = defineStore('auth', {
                     email, password
                 }, { withCredentials: true })
 
-                const id = request.data.uuid;
+                const responseUser = request.data;
 
-                localStorage.setItem('userId', id);
+                this.user = responseUser;
 
                 this.isAuthenticated = true;
 

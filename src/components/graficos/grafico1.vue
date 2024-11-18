@@ -47,6 +47,19 @@ onMounted(() => {
             ]
         },
         options: {
+            responsive: true,
+            layout: {
+                padding: 0
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            },
             animations: {
                 tension: {
                     duration: 1000,
@@ -54,7 +67,7 @@ onMounted(() => {
                     from: 1,
                     to: 0,
                     loop: false
-                }
+                },
             },
             scales: {
                 y: {

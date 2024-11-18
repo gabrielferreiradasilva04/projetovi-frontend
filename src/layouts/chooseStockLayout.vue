@@ -1,6 +1,6 @@
 <template>
     <v-app-bar color="primary">
-        <v-app-bar-title>Seja bem vindo, Gabriel Ferreira da Silva!</v-app-bar-title>
+        <v-app-bar-title>Seja bem vindo {{ userStore.user.firstName }}</v-app-bar-title>
         <v-btn>
             <v-icon size="large" @click="toggleTheme" v-tooltip="'mudar tema'">mdi-theme-light-dark</v-icon>
         </v-btn>
@@ -14,7 +14,8 @@
 <script setup>
 import { ref } from 'vue';
 import { useTheme } from 'vuetify';
-
+import { useAuthStore } from '@/stores/authStore';
+const userStore = useAuthStore();
 const theme = useTheme();
 
 const isDark = ref(false);

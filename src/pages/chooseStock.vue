@@ -42,7 +42,7 @@
                                     <v-icon size="large">mdi-delete</v-icon>
                                 </v-btn>
                                 <v-divider vertical></v-divider>
-                                <v-btn v-tooltip:bottom="'Selecionar'" class="mx-2">
+                                <v-btn @click="selectStock(item.raw)" v-tooltip:bottom="'Selecionar'" class="mx-2">
                                     <v-icon>mdi-arrow-collapse-right</v-icon>
                                 </v-btn>
                             </v-card-actions>
@@ -86,7 +86,9 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useStockStore } from '@/stores/stockStore';
 import RegisterSotckDialog from '@/components/dialogs/registerSotckDialog.vue';
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const search = ref('');
 const showStockDialog = ref(false);
 const selectedStock = ref({
@@ -118,6 +120,13 @@ onMounted(() => {
 onUnmounted(() => {
     selectedStock.value = {}
 })
+
+const selectStock = (stock) => {
+    if (stock != null) {
+        store.currentStock = stock;
+        router.push('/loadingHome')
+    }
+}
 
 
 </script>

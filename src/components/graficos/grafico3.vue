@@ -5,6 +5,7 @@
 <script setup>
 import { Chart, registerables } from 'chart.js';
 import { onMounted } from 'vue';
+import colors from 'vuetify/util/colors'
 
 // Registrar escalas, elementos e plugins
 Chart.register(...registerables);
@@ -29,13 +30,9 @@ onMounted(() => {
                 {
                     label: 'Acquisitions by year',
                     data: data.map(row => row.count),
-                    backgroundColor: [
-                        'rgb(255, 99, 132)',
-                        'rgb(54, 162, 235)',
-                        'rgb(255, 205, 86)'
-                    ],
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 0
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: colors.cyan.lighten1,
+                    borderWidth: 1,
                 }
             ]
         },

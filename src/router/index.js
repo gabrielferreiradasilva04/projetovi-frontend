@@ -32,7 +32,16 @@ const customRoutes = routes.map(route => {
     return {
       ...route,
       meta: {
-        layout: 'loadingStock',
+        layout: 'loading',
+        requiresAuth: false
+      }
+    }
+  }
+  if (route.path === '/loadingHome') {
+    return {
+      ...route,
+      meta: {
+        layout: 'loading',
         requiresAuth: false
       }
     }
