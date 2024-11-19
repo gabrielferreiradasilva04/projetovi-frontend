@@ -1,16 +1,23 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
 
-
 export const useAuthStore = defineStore('auth', {
     state: () => ({
-
         token: '',
         user: null,
         errorMessage: '',
         isAuthenticated: false
     }),
+    persist: {
+        enabled: true,
+    },
     actions: {
+        setToken(token) {
+            this.token = token;
+        },
+        setUser(user) {
+            this.user = user;
+        },
         async login(email, password) {
             if (email === '' || password === '') {
                 this.errorMessage = 'Preencha todos os campos';
