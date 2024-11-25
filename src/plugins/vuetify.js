@@ -11,9 +11,33 @@ import 'vuetify/styles'
 // Composables
 import { createVuetify } from 'vuetify'
 import colors from 'vuetify/util/colors'
+import { pt } from 'vuetify/locale'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
+  locale: {
+    locale: 'pt',
+    messages: {
+      pt: {
+        ...pt,
+        $vuetify: {
+          dataIterator: {
+            rowsPerPageText: 'Itens por Página',
+
+          },
+          dataFooter: {
+            itemsPerPageText: 'Itens por Página',
+            pageText: ''
+          }
+        }
+      }
+    }
+  },
+  date: {
+    locale: {
+      pt: 'pt-BR'
+    }
+  },
   theme: {
     themes: {
       light: {

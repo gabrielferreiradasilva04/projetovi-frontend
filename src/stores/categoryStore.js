@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
+import { useStockStore } from "./stockStore";
 
 export const useCategoryStore = defineStore('category', {
     state: () => ({
@@ -11,12 +12,17 @@ export const useCategoryStore = defineStore('category', {
         },
         headers: [
             { title: 'Descrição', key: 'description' },
-            { title: 'Ações', key: 'actions', sortable: false, align: 'end'},
+            { title: 'Ações', key: 'actions', sortable: false, align: 'end' },
         ]
     }),
     actions: {
         async listAll() {
-            const request = await api.get('/categories', { withCredentials: true });
+            const stockStore = useStockStore();
+
+            const stock = stockStore.currentStock;
+            var stockId = stock.id;
+
+            const request = await api.get('/categories/' + stockId, { withCredentials: true });
 
             if (request.status === 200) {
                 const categoriesRequest = request.data

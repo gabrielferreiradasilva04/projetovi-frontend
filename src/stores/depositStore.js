@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
+import { useStockStore } from "./stockStore";
 
 export const useDepositStore = defineStore('deposit', {
     state: () => ({
@@ -18,7 +19,12 @@ export const useDepositStore = defineStore('deposit', {
     }),
     actions: {
         async listAll() {
-            const request = await api.get('/deposits', { withCredentials: true });
+            const stockStore = useStockStore();
+
+            const currentStock = stockStore.currentStock;
+            var stockId = currentStock.id;
+
+            const request = await api.get('/deposits/' + stockId, { withCredentials: true });
 
             if (request.status === 200) {
                 const depositsRequest = request.data

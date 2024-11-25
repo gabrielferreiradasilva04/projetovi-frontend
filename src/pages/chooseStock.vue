@@ -114,7 +114,6 @@ const toogleStockDialog = (stock) => {
 }
 
 onMounted(() => {
-    console.log(store.userStocks)
     store.getAuthenticatedUserStocks();
 })
 onUnmounted(() => {

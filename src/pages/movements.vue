@@ -1,7 +1,5 @@
 <template>
-    <v-card class="my-2" hover>
-        <v-img src="/public/movimentos.svg" max-height="400" cover></v-img>
-    </v-card>
+
     <DefaultDataTable :headers="headers" :items="movements" :show-add="true" @addItem="toogleMovementDialog" />
     <AddMovementDialog :dialog="showMovementDialog" @toogle="toogleMovementDialog" />
 </template>

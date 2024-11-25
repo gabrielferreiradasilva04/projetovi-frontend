@@ -16,15 +16,15 @@
                 </v-toolbar>
             </template>
 
-            <template v-slot:item.actions="{}">
+            <template v-slot:item.actions="{ item }">
                 <div class="text-end">
-                    <v-btn size="small" variant="text">
+                    <v-btn @click="$emit('update', item)" size="small" variant="text">
                         <v-icon>
                             mdi-pencil
                         </v-icon>
                     </v-btn>
 
-                    <v-btn size="small" variant="text">
+                    <v-btn @click="$emit('delete')" size="small" variant="text">
                         <v-icon>
                             mdi-delete
                         </v-icon>

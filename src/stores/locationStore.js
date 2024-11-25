@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { api } from "@/services/axiosConfig";
+import { useStockStore } from "./stockStore";
 
 
 export const useLocationStore = defineStore('location', {
@@ -18,7 +19,11 @@ export const useLocationStore = defineStore('location', {
     }),
     actions: {
         async listAll() {
-            const request = await api.get('/locations', { withCredentials: true });
+            const stockStore = useStockStore();
+
+            const currentStock = stockStore.currentStock;
+            var stockId = currentStock.id;
+            const request = await api.get('/locations/' + stockId, { withCredentials: true });
 
             if (request.status === 200) {
                 const locationsRequest = request.data

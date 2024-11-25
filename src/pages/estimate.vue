@@ -1,7 +1,5 @@
 <template>
-    <v-card class="my-2" hover>
-        <v-img src="/public/estimate.svg" max-height="400" cover></v-img>
-    </v-card>
+
     <v-card>
         <v-data-iterator :items="estimates" :items-per-page="9" :search="search">
             <template v-slot:header>

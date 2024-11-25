@@ -1,7 +1,4 @@
 <template>
-    <v-card class="my-2" hover>
-        <v-img src="/public/productcategory.svg" max-height="400" cover></v-img>
-    </v-card>
     <DefaultDataTable :headers="catStore.headers" :items="catStore.categories" :show-add="true"
         @addItem="toogleCategoryDialog" />
     <AddCategoryDialog :dialog="showCategoryDialog" @toogle="toogleCategoryDialog" />

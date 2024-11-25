@@ -1,7 +1,5 @@
 <template>
-    <v-card class="my-2" hover>
-        <v-img src="/public/clientes.jpg" max-height="400" cover></v-img>
-    </v-card>
+
     <DefaultDataTable :headers="store.headers" :items="store.clients" :show-add="true" @addItem="toogleClientDialog" />
     <AddClientDialog :dialog="showAddClientDialog" @toogle="toogleClientDialog" />
 </template>
