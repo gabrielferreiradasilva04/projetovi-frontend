@@ -1,19 +1,21 @@
 <template>
-    <v-navigation-drawer app fixed v-model="drawer" rail color="secondary">
+    <v-navigation-drawer expand-on-hover app fixed v-model="drawer" rail color="secondary">
         <v-list>
-            <v-list-item prepend-avatar="https://cdn.vuetifyjs.com/images/john.png" subtitle="gabriel_silva@outlook.com"
-                title="Gabriel Silva">
+            <v-list-item>
+                <div class="d-flex justify-center">
+                    <v-img src="/public/icone_secundario_semfundo.png" max-width="100" />
+                </div>
             </v-list-item>
         </v-list>
 
         <v-divider></v-divider>
 
         <v-list nav>
-            <RouterLink v-for="(item, i) in items" :key="i" :to="item.to" @click="updateTitle(item.text)">
+            <RouterLink v-for=" (item, i) in items" :key="i" :to="item.to" @click="updateTitle(item.text)">
 
-                <v-list-item :value="item" v-tooltip:end="item.text">
+                <v-list-item :value="item">
                     <template v-slot:prepend>
-                        <v-icon :icon="item.icon"></v-icon>
+                        <v-icon :color="colors.deepPurple.darken4" :icon="item.icon"></v-icon>
                     </template>
 
                     <v-list-item-title v-text="item.text"></v-list-item-title>
@@ -34,7 +36,7 @@
 
         <v-app-bar-title>{{ selected_option }}</v-app-bar-title>
         <v-btn>
-            <v-icon size="large" @click="toggleTheme" v-tooltip="'mudar tema'">
+            <v-icon id="icons" size="large" @click="toggleTheme" v-tooltip="'mudar tema'">
                 = mdi-theme-light-dark
             </v-icon>
         </v-btn>
@@ -46,6 +48,8 @@
 </template>
 
 <script setup>
+import colors from 'vuetify/util/colors'
+
 import { ref } from 'vue'
 import { useTheme } from 'vuetify';
 

@@ -15,10 +15,13 @@ export const useProductStore = defineStore('product', {
             { title: 'Código', key: 'code' },
             { title: 'Un. Med', key: 'unitMeasure.code' },
             { title: 'Valor Venda', key: 'salePrice' },
-            { title: 'Categoria', key: 'category.description' },
             { title: 'Loc', key: 'location.title' },
-            { title: 'Em Estoque', key: 'quantityStock' },
-            { title: 'Ações', key: 'actions', sortable: false },
+            { title: 'Ações', key: 'actions', sortable: false, align: 'center' },
+        ],
+        menuItems: [
+            { title: 'Despositos e Produtos', icon: 'mdi-package-variant-closed' },
+            { title: 'Fornecedores e Produtos', icon: 'mdi-account' },
+            { title: 'Fotos e Produtos', icon: 'mdi-camera' }
         ]
     }),
     actions: {
@@ -30,6 +33,12 @@ export const useProductStore = defineStore('product', {
             if (oldProductIndex != -1) {
                 this.products.splice(oldProductIndex, 1, product);
             }
+        },
+        setSnackBarMessage(message) {
+            this.snackbarConfig.message = message;
+        },
+        clearSnackBarMessage() {
+            this.snackbarConfig.message = '';
         },
         async findAll() {
             const request = await api.get('/products', { withCredentials: true });
@@ -70,6 +79,7 @@ export const useProductStore = defineStore('product', {
                     deposits: product.deposits,
                     location: product.location,
                     suppliers: product.suppliers,
+                    brand: product.brand,
                     stock: {},
                 }
 
@@ -153,6 +163,7 @@ export const useProductStore = defineStore('product', {
                     deposits: product.deposits,
                     location: product.location,
                     suppliers: product.suppliers,
+                    brand: product.brand,
                     stock: {},
                 }
 

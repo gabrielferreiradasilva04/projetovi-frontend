@@ -12,7 +12,7 @@ export const useCategoryStore = defineStore('category', {
         },
         headers: [
             { title: 'Descrição', key: 'description' },
-            { title: 'Ações', key: 'actions', sortable: false, align: 'end' },
+            { title: 'Ações', key: 'actions', sortable: false, align: 'center' },
         ]
     }),
     actions: {

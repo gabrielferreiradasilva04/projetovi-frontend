@@ -30,9 +30,9 @@ onMounted(() => {
                 {
                     label: 'Acquisitions by year',
                     data: data.map(row => row.count),
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: colors.cyan.lighten1,
-                    borderWidth: 1
+                    backgroundColor: colors.deepPurple.darken4,
+                    borderColor: colors.indigo.darken4,
+                    borderWidth: 2
                 }
             ]
         },

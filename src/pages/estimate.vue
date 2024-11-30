@@ -3,7 +3,7 @@
     <v-card>
         <v-data-iterator :items="estimates" :items-per-page="9" :search="search">
             <template v-slot:header>
-                <v-toolbar rounded flat class="pa-3">
+                <v-toolbar :color="colors.deepPurple.darken1" rounded flat class="pa-3">
                     <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
                         hide-details single-line></v-text-field>
 
@@ -62,6 +62,7 @@
 </template>
 
 <script setup>
+import colors from 'vuetify/util/colors'
 import AddEstimateDialog from '@/components/dialogs/addEstimateDialog.vue';
 import { ref } from 'vue'
 const search = ref('');

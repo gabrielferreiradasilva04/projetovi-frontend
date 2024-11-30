@@ -43,8 +43,8 @@ export default createVuetify({
       light: {
         dark: false,
         colors: {
-          primary: colors.cyan.darken3,
-          secondary: colors.blueGrey.lighten5,
+          primary: colors.deepPurple.darken1,
+          secondary: colors.grey.lighten5,
           error: colors.red.darken2,
           warning: colors.orange.lighten1,
           success: colors.lightGreen.lighten1
@@ -53,8 +53,8 @@ export default createVuetify({
       dark: {
         light: false,
         colors: {
-          primary: colors.lightBlue.darken4,
-          secondary: '#3E5C76',
+          primary: colors.indigo.darken4,
+          secondary: colors.grey.lighten5,
           error: colors.red.darken2,
           warning: colors.orange.lighten1,
           success: colors.lightGreen.lighten1

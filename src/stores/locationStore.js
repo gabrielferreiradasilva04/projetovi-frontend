@@ -14,7 +14,7 @@ export const useLocationStore = defineStore('location', {
         headers: [
             { title: 'Title', key: 'title' },
             { title: 'Description', key: 'description' },
-            { title: 'Ações', key: 'actions', sortable: false, align: 'end' },
+            { title: 'Ações', key: 'actions', sortable: false, align: 'center' },
         ]
     }),
     actions: {
