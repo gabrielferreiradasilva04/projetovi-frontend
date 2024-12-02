@@ -67,7 +67,6 @@ const items = [
 
     { text: 'Depósitos', icon: 'mdi-package', to: "/deposit" },
     { text: 'Localizações', icon: 'mdi-map-marker-check', to: "/location" },
-    { text: 'Perfil', icon: 'mdi-account', to: "/profile" },
 
 ]
 

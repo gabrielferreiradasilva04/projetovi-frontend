@@ -7,16 +7,20 @@
 
     <ProductSuppliers :dialog="showSuppliersProductDialog" @toogle="toogleSuppliersProductDialog" />
 
+    <ProductDeposits :dialog="showProductDepositDialog" @toogle="toogleProductDepositDialog" />
+
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
 import ProductSuppliers from '@/components/dialogs/productSuppliers.vue';
 import AddProductDialog from '@/components/dialogs/registerProductDialog.vue';
+import ProductDeposits from '@/components/dialogs/productDeposits.vue'
 import { useProductStore } from '@/stores/productStore';
 import { onMounted, onUnmounted, ref } from 'vue';
 
 const showAddProductDialog = ref(false);
 const showSuppliersProductDialog = ref(false);
+const showProductDepositDialog = ref(false);
 const store = useProductStore();
 const selectedProduct = ref({
     id: '',
@@ -51,10 +55,20 @@ const toogleProductDialog = (product) => {
 const toogleSuppliersProductDialog = () => {
     showSuppliersProductDialog.value = !showSuppliersProductDialog.value;
 }
+const toogleProductDepositDialog = () => {
+    showProductDepositDialog.value = !showProductDepositDialog.value;
+}
 
 const menuItemClick = (item) => {
-    if (item === 1) {
-        toogleSuppliersProductDialog();
+    switch (item) {
+        case 0:
+            toogleProductDepositDialog();
+            break;
+        case 1:
+            toogleSuppliersProductDialog();
+            break;
+        default:
+            break;
     }
 }
 onMounted(() => {

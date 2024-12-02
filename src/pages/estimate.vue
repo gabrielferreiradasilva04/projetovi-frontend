@@ -1,5 +1,6 @@
 <template>
-
+    <v-alert density="compact" text="Funcionalidade em Desenvolvimento, em breve traremos novidades!" title="Atenção!"
+        type="warning" />
     <v-card>
         <v-data-iterator :items="estimates" :items-per-page="9" :search="search">
             <template v-slot:header>

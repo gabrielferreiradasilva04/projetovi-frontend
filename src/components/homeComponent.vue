@@ -1,4 +1,6 @@
 <template>
+    <v-alert density="compact" text="Funcionalidade em Desenvolvimento, em breve traremos novidades!" title="Atenção!"
+        type="warning" />
     <v-container>
         <div class="d-flex justify-end mb-3">
             <v-card class="px-4 py-2">

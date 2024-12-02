@@ -1,5 +1,6 @@
 <template>
-<HomeComponent></HomeComponent>
+
+    <HomeComponent></HomeComponent>
 </template>
 
 <script setup>

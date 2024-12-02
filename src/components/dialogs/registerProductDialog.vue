@@ -14,8 +14,8 @@
                 v-model="product.priceCost"></v-text-field>
               <v-text-field :rules="rules" prepend-inner-icon="mdi-cash" label="Preço Venda" v-model="product.salePrice"
                 type="number"></v-text-field>
-              <v-text-field :rules="rules" prepend-inner-icon="mdi-arrow-down-circle" type="number"
-                v-model="product.minimumStock" label="Estoque Mínimo"></v-text-field>
+              <v-combobox hide-selected :rules="rules" prepend-inner-icon="mdi-map-marker" clearable label="Localização"
+                :items="locationStore.locations" v-model="product.location" item-title="title"></v-combobox>
             </v-col>
             <v-col cols="12" md="6" xs="3">
               <v-combobox :rules="rules" prepend-inner-icon="mdi-tag" label="Marca do produto"
@@ -30,8 +30,6 @@
               <v-combobox placeholder="selecione uma ou mais categorias" hide-selected :rules="comboRules"
                 prepend-inner-icon="mdi-diversify" multiple clearable label="Categoria"
                 :items="categoryStore.categories" v-model="product.categories" item-title="description"></v-combobox>
-              <v-combobox hide-selected :rules="rules" prepend-inner-icon="mdi-map-marker" clearable label="Localização"
-                :items="locationStore.locations" v-model="product.location" item-title="title"></v-combobox>
               <v-card variant="text" class="d-flex justify-end">
                 <v-switch v-model="product.active" color="primary" label="Ativo" hide-details></v-switch>
               </v-card>
@@ -112,7 +110,6 @@ function resetProduct() {
   product.description = '';
   product.priceCost = 0;
   product.salePrice = 0;
-  product.minimumStock = 0;
   product.active = false;
   product.unitMeasure = null;
   product.stock = null;

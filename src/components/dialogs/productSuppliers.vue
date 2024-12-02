@@ -25,7 +25,7 @@
     </v-dialog>
 </template>
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 import { useProductStore } from '@/stores/productStore';
 import { useSupplierStore } from '@/stores/supplierStore';
 
@@ -44,7 +44,6 @@ const initialProductState = {
     description: '',
     priceCost: 0,
     salePrice: 0,
-    minimumStock: 0,
     active: false,
     unitMeasure: null,
     stock: null,

@@ -16,8 +16,9 @@
                     </template>
 
                     <v-divider v-if="props.showAdd" class="mx-4" inset vertical></v-divider>
-                    <v-btn v-if="props.showAdd" @click="$emit('addItem')" text="Adicionar" prepend-icon="mdi-plus"
-                        variant="tonal" />
+                    <v-btn v-if="props.showAdd" @click="$emit('addItem')">
+                        <VIcon>mdi-plus</VIcon>
+                    </v-btn>
                     <v-divider v-if="props.showProductMenu" class="mx-4" inset vertical></v-divider>
                 </v-toolbar>
             </template>
