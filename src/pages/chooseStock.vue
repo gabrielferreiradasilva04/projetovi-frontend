@@ -3,7 +3,7 @@
 
     <v-data-iterator :items="store.userStocks" :items-per-page="3" :search="search">
         <template v-slot:header>
-            <v-toolbar flat class="pa-3" rounded>
+            <v-toolbar :color="colors.deepPurple.darken1" flat class="pa-3" rounded>
                 <v-text-field v-model="search" label="Pesquisar" prepend-inner-icon="mdi-magnify" variant="outlined"
                     hide-details single-line></v-text-field>
 
@@ -83,6 +83,7 @@
 </template>
 
 <script setup>
+import colors from 'vuetify/util/colors'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useStockStore } from '@/stores/stockStore';
 import RegisterSotckDialog from '@/components/dialogs/registerSotckDialog.vue';
@@ -114,7 +115,6 @@ const toogleStockDialog = (stock) => {
 }
 
 onMounted(() => {
-    console.log(store.userStocks)
     store.getAuthenticatedUserStocks();
 })
 onUnmounted(() => {

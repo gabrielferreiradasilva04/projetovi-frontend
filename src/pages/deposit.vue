@@ -1,7 +1,5 @@
 <template>
-    <v-card variant="text" hover class="my-2">
-        <v-img src="/public/deposito.jpg" cover max-height="400"></v-img>
-    </v-card>
+
     <DefaultDataTable :headers="store.headers" :items="store.deposits" :show-add="true"
         @addItem="toogleDepositDialog" />
     <AddDepositDialog :dialog="showDepositDialog" @toogle="toogleDepositDialog" />

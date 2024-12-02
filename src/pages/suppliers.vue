@@ -1,7 +1,5 @@
 <template>
-    <v-card variant="text" hover class="my-2">
-        <v-img src="/public/suppliers.svg" cover max-height="400"></v-img>
-    </v-card>
+
     <DefaultDataTable :headers="store.headers" :items="store.suppliers" :show-add="true"
         @addItem="toogleSupplierDialog" />
     <AddSupplierDialog :dialog="showSupplierDialog" @toogle="toogleSupplierDialog" />

@@ -1,166 +1,83 @@
 <template>
-    <v-card variant="text" hover class="my-2">
-        <v-img src="/public/produtos.jpg" cover max-height="400"></v-img>
-    </v-card>
-        <DefaultDataTable :headers="headers" :items="items" :show-add="true" @addItem="toogleProductDialog" />
-    <AddProductDialog :dialog="showAddProductDialog" @toogle="toogleProductDialog" />
+    <DefaultDataTable :show-product-menu="true" :product-menu-items="store.menuItems" :headers="store.headers"
+        :items="store.products" :show-add="true" @addItem="toogleProductDialog()" @update="toogleProductDialog"
+        @menuItemClick="menuItemClick" />
+    <AddProductDialog :edit-mode="editMode" :product="selectedProduct" :dialog="showAddProductDialog"
+        @toogle="toogleProductDialog" />
+
+    <ProductSuppliers :dialog="showSuppliersProductDialog" @toogle="toogleSuppliersProductDialog" />
+
+    <ProductDeposits :dialog="showProductDepositDialog" @toogle="toogleProductDepositDialog" />
+
 </template>
 <script setup>
 import DefaultDataTable from '@/components/defaultDataTable.vue';
-import AddProductDialog from '@/components/dialogs/addProductDialog.vue';
-import { ref } from 'vue';
-const showAddProductDialog = ref(false);
+import ProductSuppliers from '@/components/dialogs/productSuppliers.vue';
+import AddProductDialog from '@/components/dialogs/registerProductDialog.vue';
+import ProductDeposits from '@/components/dialogs/productDeposits.vue'
+import { useProductStore } from '@/stores/productStore';
+import { onMounted, onUnmounted, ref } from 'vue';
 
-const toogleProductDialog = () => {
+const showAddProductDialog = ref(false);
+const showSuppliersProductDialog = ref(false);
+const showProductDepositDialog = ref(false);
+const store = useProductStore();
+const selectedProduct = ref({
+    id: '',
+    code: '',
+    description: '',
+    priceCost: 0,
+    salePrice: 0,
+    minimumStock: 0,
+    active: Boolean,
+    unitMeasure: null,
+    stock: null,
+    deposits: [],
+    location: null,
+    categories: [],
+    suppliers: [],
+    registrationDate: Date,
+    updateDate: Date,
+    brand: null
+});
+const editMode = ref(false);
+const toogleProductDialog = (product) => {
+    if (product != null) {
+        console.log(selectedProduct);
+        selectedProduct.value = product;
+        editMode.value = true;
+    } else {
+        selectedProduct.value = {};
+        editMode.value = false;
+    }
     showAddProductDialog.value = !showAddProductDialog.value;
 }
+const toogleSuppliersProductDialog = () => {
+    showSuppliersProductDialog.value = !showSuppliersProductDialog.value;
+}
+const toogleProductDepositDialog = () => {
+    showProductDepositDialog.value = !showProductDepositDialog.value;
+}
 
-const headers = [
-    { title: 'Código', key: 'code' },
-    { title: 'Un. Med', key: 'unitMeasure' },
-    { title: 'Valor Venda', key: 'salePrice' },
-    { title: 'Categoria', key: 'category' },
-    { title: 'Loc', key: 'location' },
-    { title: 'Em Estoque', key: 'quantityStock' },
-    { title: 'Ações', key: 'actions', sortable: false },
-]
-const items = [
-    {
-        code: 'A001',
-        priceCost: 10.50,
-        salePrice: 15.00,
-        quantityStock: 100,
-        category: 'Category 1',
-        location: 'Location A',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A002',
-        priceCost: 20.00,
-        salePrice: 30.00,
-        quantityStock: 50,
-        category: 'Category 2',
-        location: 'Location B',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A003',
-        priceCost: 5.00,
-        salePrice: 8.50,
-        quantityStock: 200,
-        category: 'Category 3',
-        location: 'Location C',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A004',
-        priceCost: 12.75,
-        salePrice: 18.00,
-        quantityStock: 75,
-        category: 'Category 4',
-        location: 'Location D',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A005',
-        priceCost: 8.20,
-        salePrice: 12.00,
-        quantityStock: 150,
-        category: 'Category 5',
-        location: 'Location E',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A001',
-        priceCost: 10.50,
-        salePrice: 15.00,
-        quantityStock: 100,
-        category: 'Category 1',
-        location: 'Location A',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A002',
-        priceCost: 20.00,
-        salePrice: 30.00,
-        quantityStock: 50,
-        category: 'Category 2',
-        location: 'Location B',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A003',
-        priceCost: 5.00,
-        salePrice: 8.50,
-        quantityStock: 200,
-        category: 'Category 3',
-        location: 'Location C',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A004',
-        priceCost: 12.75,
-        salePrice: 18.00,
-        quantityStock: 75,
-        category: 'Category 4',
-        location: 'Location D',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A005',
-        priceCost: 8.20,
-        salePrice: 12.00,
-        quantityStock: 150,
-        category: 'Category 5',
-        location: 'Location E',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A001',
-        priceCost: 10.50,
-        salePrice: 15.00,
-        quantityStock: 100,
-        category: 'Category 1',
-        location: 'Location A',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A002',
-        priceCost: 20.00,
-        salePrice: 30.00,
-        quantityStock: 50,
-        category: 'Category 2',
-        location: 'Location B',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A003',
-        priceCost: 5.00,
-        salePrice: 8.50,
-        quantityStock: 200,
-        category: 'Category 3',
-        location: 'Location C',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A004',
-        priceCost: 12.75,
-        salePrice: 18.00,
-        quantityStock: 75,
-        category: 'Category 4',
-        location: 'Location D',
-        unitMeasure: 'kg'
-    },
-    {
-        code: 'A005',
-        priceCost: 8.20,
-        salePrice: 12.00,
-        quantityStock: 150,
-        category: 'Category 5',
-        location: 'Location E',
-        unitMeasure: 'kg'
+const menuItemClick = (item) => {
+    switch (item) {
+        case 0:
+            toogleProductDepositDialog();
+            break;
+        case 1:
+            toogleSuppliersProductDialog();
+            break;
+        default:
+            break;
     }
-];
+}
+onMounted(() => {
+    store.findAll();
+});
+onUnmounted(() => {
+    selectedProduct.value = {};
+})
+
 
 
 

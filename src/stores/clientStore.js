@@ -14,8 +14,7 @@ export const useClientStore = defineStore('client', {
             { title: 'Nome', key: 'firstName' },
             { title: 'Telefone', key: 'phoneNumber' },
             { title: 'Email', key: 'email' },
-            { title: 'Ativo', key: 'active' },
-            { title: 'Ações', key: 'actions', sortable: false },]
+            { title: 'Ações', key: 'actions', sortable: false, align: 'center' },]
     }),
     actions: {
         async listAll() {

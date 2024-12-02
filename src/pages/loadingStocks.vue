@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import Loading from '@/components/loadingStocks.vue';
 </script>
 

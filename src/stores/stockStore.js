@@ -12,6 +12,9 @@ export const useStockStore = defineStore('stock', {
             message: ''
         }
     }),
+    persist: {
+        enabled: true,
+    },
     actions: {
         addStockOnUserStocks(stock) {
             this.userStocks.push(stock);
@@ -39,20 +42,20 @@ export const useStockStore = defineStore('stock', {
                         this.snackbarConfig = {
                             message: 'Não autorizado',
                             color: 'error',
-                            time: 20000
+                            time: 2000
                         }
                     } else {
                         this.snackbarConfig = {
                             message: error.response.data.message,
                             color: 'warning',
-                            time: 20000
+                            time: 2000
                         }
                     }
                 } else {
                     this.snackbarConfig = {
                         message: 'Erro desconhecido',
                         color: 'warning',
-                        time: 20000
+                        time: 2000
                     }
                 }
             }
